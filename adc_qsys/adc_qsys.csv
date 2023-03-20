@@ -1,0 +1,31 @@
+# system info adc_qsys on 2018.08.17.19:44:54
+system_info:
+name,value
+DEVICE,10M08SAE144C8G
+DEVICE_FAMILY,MAX 10
+GENERATION_ID,1534520674
+#
+#
+# Files generated for adc_qsys on 2018.08.17.19:44:54
+files:
+filepath,kind,attributes,module,is_top
+simulation/adc_qsys.vhd,VHDL,,adc_qsys,true
+simulation/submodules/adc_qsys_ADC_0.vhd,VHDL,,adc_qsys_ADC_0,false
+simulation/submodules/adc_qsys_PLL0.vho,VHDL,,adc_qsys_PLL0,false
+simulation/submodules/altera_reset_controller.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_synchronizer.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_controller.sdc,SDC,,altera_reset_controller,false
+simulation/submodules/altera_modular_adc_control.v,VERILOG,,adc_qsys_ADC_0_control_internal,false
+simulation/submodules/altera_modular_adc_control_avrg_fifo.v,VERILOG,,adc_qsys_ADC_0_control_internal,false
+simulation/submodules/altera_modular_adc_control_fsm.v,VERILOG,,adc_qsys_ADC_0_control_internal,false
+simulation/submodules/chsel_code_converter_sw_to_hw.v,VERILOG,,adc_qsys_ADC_0_control_internal,false
+simulation/submodules/fiftyfivenm_adcblock_primitive_wrapper.v,VERILOG,,adc_qsys_ADC_0_control_internal,false
+simulation/submodules/fiftyfivenm_adcblock_top_wrapper.v,VERILOG,,adc_qsys_ADC_0_control_internal,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+adc_qsys.ADC_0,adc_qsys_ADC_0
+adc_qsys.ADC_0.control_internal,adc_qsys_ADC_0_control_internal
+adc_qsys.PLL0,adc_qsys_PLL0
+adc_qsys.rst_controller,altera_reset_controller

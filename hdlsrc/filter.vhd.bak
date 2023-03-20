@@ -1,0 +1,91 @@
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.all;
+USE IEEE.numeric_std.ALL;
+
+ENTITY filter IS
+   PORT( clk                             :   IN    std_logic; 
+         clk_enable                      :   IN    std_logic; 
+         reset                           :   IN    std_logic; 
+         filter_in                       :   IN    std_logic_vector(15 DOWNTO 0); -- sfix16_En11
+         filter_out                      :   OUT   std_logic_vector(15 DOWNTO 0)  -- sfix16_En11
+         );
+END filter;
+
+ARCHITECTURE rtl OF filter IS
+
+  TYPE delay_type IS ARRAY (10 downto 0) OF signed(15 DOWNTO 0); -- sfix16_En15
+
+  -- Signals
+  SIGNAL input_register                   : signed(15 DOWNTO 0) := (others => '0');
+  SIGNAL delay_buff                       : delay_type := (OTHERS => (OTHERS => '0'));
+  SIGNAL y0                               : signed(15 downto 0) := (others => '0');
+  -- Section 1 Signals
+  SIGNAL mul_var                          : signed(63 downto 0) := (others => '0');
+  SIGNAL y1_old                           : signed(15 DOWNTO 0) := (others => '0');
+  SIGNAL filter_ff                        : signed(22 DOWNTO 0) := (others => '0');
+BEGIN
+
+  -- Block Statements
+  input_reg_process : PROCESS (clk, reset)
+  BEGIN
+    IF reset = '1' THEN
+      input_register <= (OTHERS => '0');
+    ELSIF rising_edge(clk) THEN
+      IF clk_enable = '1' THEN
+        input_register <= signed(filter_in);
+      END IF;
+    END IF; 
+  END PROCESS input_reg_process;
+
+  hpf : PROCESS (clk, reset)
+  BEGIN
+    IF reset = '1' THEN
+      delay_buff <= (OTHERS => (OTHERS => '0'));
+    ELSIF rising_edge(clk) THEN
+      IF clk_enable = '1' THEN
+		delay_buff(10)<= delay_buff(9);
+		delay_buff(9) <= delay_buff(8);
+		delay_buff(8) <= delay_buff(7);
+		delay_buff(7) <= delay_buff(6);
+		delay_buff(6) <= delay_buff(5);
+		delay_buff(5) <= delay_buff(4);
+		delay_buff(4) <= delay_buff(3);
+		delay_buff(3) <= delay_buff(2);
+		delay_buff(2) <= delay_buff(1);
+		delay_buff(1) <= delay_buff(0);
+        delay_buff(0) <= (input_register + input_register + delay_buff(0)(15 downto 1));
+		
+--		y0 <= (input_register + delay_buff(0) + delay_buff(1) + delay_buff(2) + delay_buff(3) + delay_buff(4) -
+--				delay_buff(5) - delay_buff(6) - delay_buff(7) - delay_buff(8) - delay_buff(9) - delay_buff(10) );
+		y0 <= ( delay_buff(0) + delay_buff(1) + delay_buff(2) - --+ delay_buff(2) + delay_buff(3) + delay_buff(4) -
+				delay_buff(3) - delay_buff(4) - delay_buff(5) ); --  - delay_buff(8) - delay_buff(9) - delay_buff(10) );
+      END IF;
+    END IF;
+  END PROCESS;
+
+  LPF : PROCESS (clk, reset)
+  BEGIN
+    IF reset = '1' THEN
+      y1_old <= (OTHERS => '0');
+	  filter_ff <= (OTHERS => '0');
+	  filter_out <= (OTHERS => '0');
+    ELSIF rising_edge(clk) THEN
+      IF clk_enable = '1' THEN
+
+		filter_ff <= resize(y0,23); --  + signed(filter_ff(22 downto 0)); -- + signed(filter_ff(22 downto 1)) + signed(filter_ff(22 downto 2)) + signed(filter_ff(22 downto 3));
+		
+		IF filter_ff(22 downto 4)>8192 THEN
+			filter_out <= x"7FFF";
+		ELSIF filter_ff(19 downto 4)<-8192 THEN
+			filter_out <= x"8000";
+		ELSE
+			filter_out <= std_logic_vector(y0); -- filter_ff(22 downto 7));
+		END IF;
+      END IF;
+		
+    END IF; 
+  END PROCESS;	
+
+  -- Assignment Statements
+END rtl;

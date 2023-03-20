@@ -1,0 +1,21 @@
+include "lpm_counter";
+
+constant freq_div = floor(65536 / 25000000 * 380000);
+
+subdesign sonar_pwr(CLK : input; Hi, Lo, En : output)
+variable
+	cnt : lpm_counter WITH (LPM_WIDTH=25, LPM_MODULUS=25000000);
+	ena : node;
+	cnt_f[15..0] : DFF;
+begin
+	cnt. clock = CLK;
+	ena = SRFF(cnt.q[]==0, cnt.q[]==25000, CLK, , );
+	
+	cnt_f[].clk = CLK;
+	cnt_f[].d = cnt_f[].q + 500; -- freq_div;
+	
+	En = !ena;
+	Hi = cnt_f[15] & ena;
+	Lo = !cnt_f[15] & ena;
+	
+end;

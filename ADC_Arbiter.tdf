@@ -1,0 +1,64 @@
+INCLUDE "lpm_ff";
+INCLUDE "lpm_counter";
+
+SUBDESIGN ADC_Arbiter(CLK : INPUT;
+							command_valid  : OUTPUT;
+							command_channel [4..0]: OUTPUT;
+							command_startofpacket : OUTPUT;
+							command_endofpacket : OUTPUT;
+							command_ready : OUTPUT;
+							reset_n : OUTPUT;
+							response_valid : INPUT;
+							response_channel[4..0] : INPUT;
+							response_data[11..0] : INPUT;
+							response_startofpacket : INPUT;
+							response_endofpacket : INPUT;
+							
+							DATA_A[15..0] : OUTPUT;
+							DATA_B[15..0] : OUTPUT;
+							DATA_C[15..0] : OUTPUT;
+							DATA_A_en : OUTPUT;
+							)
+VARIABLE
+	channel : lpm_counter WITH (LPM_WIDTH=5, LPM_MODULUS=3);
+	DATA_A_FF : lpm_ff WITH (LPM_WIDTH = 12);
+	DATA_B_FF : lpm_ff WITH (LPM_WIDTH = 12);
+	DATA_C_FF : lpm_ff WITH (LPM_WIDTH = 12);
+BEGIN
+
+		channel. clock = CLK;
+		channel. clk_en = response_valid;
+
+		command_valid  = VCC;
+--		command_channel [] = channel. q[];
+		CASE channel.q[] IS
+			WHEN 0 => command_channel [] = 1;
+			WHEN 1 => command_channel [] = 3; -- 3 
+			WHEN 2 => command_channel [] = 5; -- 5
+			WHEN OTHERS => command_channel [] = 8;
+		END CASE;
+		
+		command_startofpacket  = VCC; 
+		command_endofpacket  = VCC;
+		command_ready  = VCC; 
+		reset_n  = VCC;
+
+		DATA_A_FF. clock = CLK;
+		DATA_B_FF. clock = CLK;
+		DATA_C_FF. clock = CLK;
+		
+		DATA_A_FF. data[] = response_data[];
+		DATA_B_FF. data[] = response_data[];
+		DATA_C_FF. data[] = response_data[];
+
+		DATA_A_FF. enable = response_valid and (response_channel[] == 1);
+		DATA_B_FF. enable = response_valid and (response_channel[] == 3); -- 3
+		DATA_C_FF. enable = response_valid and (response_channel[] == 5); -- 5
+
+		DATA_A_en  = (response_valid and (response_channel[] == 5));
+		
+		DATA_A[] = (GND,GND,GND,DATA_A_FF.q[11..0],GND);
+		DATA_B[] = (GND,GND,GND,DATA_B_FF.q[11..0],GND);
+		DATA_C[] = (GND,GND,GND,DATA_C_FF.q[11..0],GND);
+				
+END;

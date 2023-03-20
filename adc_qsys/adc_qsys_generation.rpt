@@ -1,0 +1,43 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate /home/nick/Quartus/SONAR1_Maxim/adc_qsys.qsys --block-symbol-file --output-directory=/home/nick/Quartus/SONAR1_Maxim/adc_qsys --family="MAX 10" --part=10M08SAE144C8G
+Progress: Loading SONAR1_Maxim/adc_qsys.qsys
+Progress: Reading input file
+Progress: Adding ADC_0 [altera_modular_adc 16.1]
+Progress: Parameterizing module ADC_0
+Progress: Adding PLL0 [altpll 16.1]
+Progress: Parameterizing module PLL0
+Progress: Adding clk_0 [clock_source 16.1]
+Progress: Parameterizing module clk_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: adc_qsys.PLL0: PLL0.areset_conduit must be exported, or connected to a matching conduit.
+Warning: adc_qsys.PLL0: PLL0.pll_slave must be connected to an Avalon-MM master
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate /home/nick/Quartus/SONAR1_Maxim/adc_qsys.qsys --synthesis=VERILOG --output-directory=/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis --family="MAX 10" --part=10M08SAE144C8G
+Progress: Loading SONAR1_Maxim/adc_qsys.qsys
+Progress: Reading input file
+Progress: Adding ADC_0 [altera_modular_adc 16.1]
+Progress: Parameterizing module ADC_0
+Progress: Adding PLL0 [altpll 16.1]
+Progress: Parameterizing module PLL0
+Progress: Adding clk_0 [clock_source 16.1]
+Progress: Parameterizing module clk_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: adc_qsys.PLL0: PLL0.areset_conduit must be exported, or connected to a matching conduit.
+Warning: adc_qsys.PLL0: PLL0.pll_slave must be connected to an Avalon-MM master
+Info: adc_qsys: Generating adc_qsys "adc_qsys" for QUARTUS_SYNTH
+Info: ADC_0: "adc_qsys" instantiated altera_modular_adc "ADC_0"
+Info: PLL0: "adc_qsys" instantiated altpll "PLL0"
+Info: rst_controller: "adc_qsys" instantiated altera_reset_controller "rst_controller"
+Info: control_internal: "ADC_0" instantiated altera_modular_adc_control "control_internal"
+Info: adc_qsys: Done "adc_qsys" with 5 modules, 13 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

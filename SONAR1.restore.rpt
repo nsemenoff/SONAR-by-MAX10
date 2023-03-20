@@ -1,0 +1,190 @@
+Restore Archived Project report for SONAR1
+Wed Nov 28 13:07:26 2018
+Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Wed Nov 28 13:07:26 2018 ;
+; Revision Name                   ; SONAR1                                ;
+; Top-level Entity Name           ; SONAR1                                ;
+; Family                          ; MAX 10                                ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored '/home/nick/Quartus/SONAR1_Vasilii/SONAR1_tmp_archive.qar' into the '/home/nick/Quartus/SONAR1_Maxim/' directory
+Info: Generated report 'SONAR1.restore.rpt'
+
+
++-------------------------------------------------------------------------+
+; Files Restored                                                          ;
++-------------------------------------------------------------------------+
+; File Name                                                               ;
++-------------------------------------------------------------------------+
+; qar_info.json                                                           ;
+; ADC_Arbiter.tdf                                                         ;
+; ADC_core.sopcinfo                                                       ;
+; CLK_DIV_2.tdf                                                           ;
+; LED_BLINK.tdf                                                           ;
+; ModBus_CTRL.tdf                                                         ;
+; SONAR1.bdf                                                              ;
+; SONAR1.qpf                                                              ;
+; SONAR1.qsf                                                              ;
+; SONAR1_assignment_defaults.qdf                                          ;
+; SONAR_PELENG.vhd                                                        ;
+; adc_qsys.qsys                                                           ;
+; adc_qsys.sopcinfo                                                       ;
+; adc_qsys/adc_qsys.bsf                                                   ;
+; adc_qsys/adc_qsys.cmp                                                   ;
+; adc_qsys/adc_qsys.csv                                                   ;
+; adc_qsys/adc_qsys.html                                                  ;
+; adc_qsys/adc_qsys.spd                                                   ;
+; adc_qsys/adc_qsys.xml                                                   ;
+; adc_qsys/adc_qsys_bb.v                                                  ;
+; adc_qsys/adc_qsys_generation.rpt                                        ;
+; adc_qsys/adc_qsys_generation_previous.rpt                               ;
+; adc_qsys/adc_qsys_inst.v                                                ;
+; adc_qsys/adc_qsys_inst.vhd                                              ;
+; adc_qsys/simulation/adc_qsys.sip                                        ;
+; adc_qsys/simulation/adc_qsys.vhd                                        ;
+; adc_qsys/simulation/aldec/rivierapro_setup.tcl                          ;
+; adc_qsys/simulation/cadence/cds.lib                                     ;
+; adc_qsys/simulation/cadence/cds_libs/ADC_0.cds.lib                      ;
+; adc_qsys/simulation/cadence/cds_libs/PLL0.cds.lib                       ;
+; adc_qsys/simulation/cadence/cds_libs/control_internal.cds.lib           ;
+; adc_qsys/simulation/cadence/cds_libs/rst_controller.cds.lib             ;
+; adc_qsys/simulation/cadence/hdl.var                                     ;
+; adc_qsys/simulation/cadence/ncsim_setup.sh                              ;
+; adc_qsys/simulation/mentor/msim_setup.tcl                               ;
+; adc_qsys/simulation/submodules/adc_qsys_ADC_0.v                         ;
+; adc_qsys/simulation/submodules/adc_qsys_ADC_0.vhd                       ;
+; adc_qsys/simulation/submodules/adc_qsys_PLL0.vho                        ;
+; adc_qsys/simulation/submodules/altera_modular_adc_control.v             ;
+; adc_qsys/simulation/submodules/altera_modular_adc_control_avrg_fifo.v   ;
+; adc_qsys/simulation/submodules/altera_modular_adc_control_fsm.v         ;
+; adc_qsys/simulation/submodules/altera_reset_controller.sdc              ;
+; adc_qsys/simulation/submodules/altera_reset_controller.v                ;
+; adc_qsys/simulation/submodules/altera_reset_synchronizer.v              ;
+; adc_qsys/simulation/submodules/chsel_code_converter_sw_to_hw.v          ;
+; adc_qsys/simulation/submodules/fiftyfivenm_adcblock_primitive_wrapper.v ;
+; adc_qsys/simulation/submodules/fiftyfivenm_adcblock_top_wrapper.v       ;
+; adc_qsys/simulation/synopsys/vcsmx/synopsys_sim.setup                   ;
+; adc_qsys/simulation/synopsys/vcsmx/vcsmx_setup.sh                       ;
+; adc_qsys/synthesis/adc_qsys.debuginfo                                   ;
+; adc_qsys/synthesis/adc_qsys.qip                                         ;
+; adc_qsys/synthesis/adc_qsys.v                                           ;
+; adc_qsys/synthesis/adc_qsys.vhd                                         ;
+; adc_qsys/synthesis/submodules/adc_qsys_ADC_0.v                          ;
+; adc_qsys/synthesis/submodules/adc_qsys_PLL0.v                           ;
+; adc_qsys/synthesis/submodules/adc_qsys_PLL_0.v                          ;
+; adc_qsys/synthesis/submodules/adc_qsys_altpll_0.v                       ;
+; adc_qsys/synthesis/submodules/altera_modular_adc_control.sdc            ;
+; adc_qsys/synthesis/submodules/altera_modular_adc_control.v              ;
+; adc_qsys/synthesis/submodules/altera_modular_adc_control_avrg_fifo.v    ;
+; adc_qsys/synthesis/submodules/altera_modular_adc_control_fsm.v          ;
+; adc_qsys/synthesis/submodules/altera_reset_controller.sdc               ;
+; adc_qsys/synthesis/submodules/altera_reset_controller.v                 ;
+; adc_qsys/synthesis/submodules/altera_reset_synchronizer.v               ;
+; adc_qsys/synthesis/submodules/chsel_code_converter_sw_to_hw.v           ;
+; adc_qsys/synthesis/submodules/fiftyfivenm_adcblock_primitive_wrapper.v  ;
+; adc_qsys/synthesis/submodules/fiftyfivenm_adcblock_top_wrapper.v        ;
+; add_pll.bsf                                                             ;
+; add_pll.cmp                                                             ;
+; add_pll.inc                                                             ;
+; add_pll.ppf                                                             ;
+; add_pll.qip                                                             ;
+; add_pll.vhd                                                             ;
+; add_pll_inst.vhd                                                        ;
+; crc16_mb.vhd                                                            ;
+; ctr_bcd.vhd                                                             ;
+; ctr_receiver_clock.vhd                                                  ;
+; hdlsrc/filter.vhd                                                       ;
+; kFilter.vhd                                                             ;
+; main_clock.qsys                                                         ;
+; main_clock.sopcinfo                                                     ;
+; main_clock/main_clock.bsf                                               ;
+; main_clock/main_clock.cmp                                               ;
+; main_clock/main_clock.csv                                               ;
+; main_clock/main_clock.html                                              ;
+; main_clock/main_clock.ppf                                               ;
+; main_clock/main_clock.spd                                               ;
+; main_clock/main_clock.xml                                               ;
+; main_clock/main_clock_bb.v                                              ;
+; main_clock/main_clock_generation.rpt                                    ;
+; main_clock/main_clock_generation_previous.rpt                           ;
+; main_clock/main_clock_inst.v                                            ;
+; main_clock/main_clock_inst.vhd                                          ;
+; main_clock/simulation/aldec/rivierapro_setup.tcl                        ;
+; main_clock/simulation/cadence/cds.lib                                   ;
+; main_clock/simulation/cadence/cds_libs/int_osc_0.cds.lib                ;
+; main_clock/simulation/cadence/hdl.var                                   ;
+; main_clock/simulation/cadence/ncsim_setup.sh                            ;
+; main_clock/simulation/main_clock.sip                                    ;
+; main_clock/simulation/main_clock.vhd                                    ;
+; main_clock/simulation/mentor/msim_setup.tcl                             ;
+; main_clock/simulation/submodules/altera_int_osc.sdc                     ;
+; main_clock/simulation/submodules/altera_int_osc.v                       ;
+; main_clock/simulation/synopsys/vcsmx/synopsys_sim.setup                 ;
+; main_clock/simulation/synopsys/vcsmx/vcsmx_setup.sh                     ;
+; main_clock/synthesis/main_clock.debuginfo                               ;
+; main_clock/synthesis/main_clock.qip                                     ;
+; main_clock/synthesis/main_clock.vhd                                     ;
+; main_clock/synthesis/submodules/altera_int_osc.sdc                      ;
+; main_clock/synthesis/submodules/altera_int_osc.v                        ;
+; output_files/Chain1.cdf                                                 ;
+; rs232_receiver.vhd                                                      ;
+; rs232_transmitter.vhd                                                   ;
+; rx_ctrl.vhd                                                             ;
+; shift9_lr.vhd                                                           ;
+; shift9_r.vhd                                                            ;
+; signals1.stp                                                            ;
+; sonar_pwrtdf.tdf                                                        ;
+; stp1.stp                                                                ;
+; tx_ctrl.vhd                                                             ;
+; uart_test.stp                                                           ;
+; voting_circuit_2_of_3.vhd                                               ;
++-------------------------------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

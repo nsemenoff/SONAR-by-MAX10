@@ -1,0 +1,109 @@
+INCLUDE "lpm_counter";
+INCLUDE "lpm_shiftreg";
+INCLUDE "lpm_ff";
+
+SUBDESIGN ModBus_CTRL(
+	CLK : INPUT;
+	DATA_A[7..0] : INPUT;
+	DATA_B[7..0] : INPUT;
+	DATA_C[7..0] : INPUT;
+	UART_reset : OUTPUT;
+	rs_data_in[7..0] : OUTPUT;
+	even_odd : OUTPUT;
+	
+	rs_data_out[7..0] : INPUT;
+	receiver_busy : INPUT;
+	new_data : INPUT;
+	
+	receive_clk : OUTPUT;
+	
+	send_done : INPUT;
+	send_busy : INPUT;
+	send_clk : OUTPUT;
+	send_data : OUTPUT;
+	
+	CRC_init : OUTPUT;
+	CRC_DATA_en : OUTPUT;
+	CRC_DATA[7..0] : OUTPUT;
+	CRC[15..0] : INPUT;
+	Peleng_detect : INPUT;
+	LEVEL_OUT[15..0] : INPUT
+	)
+VARIABLE
+	big_timer : lpm_counter WITH (LPM_WIDTH = 28);
+	rs_clocker : lpm_counter WITH (LPM_WIDTH=7, LPM_MODULUS=32); --- 56 = 821
+	rs_timer : lpm_counter WITH (LPM_WIDTH=10);
+	
+	detect_timer : lpm_counter WITH (LPM_WIDTH=23);
+	detect_timer_q : NODE;
+	
+	fsm : machine with states(idle, b1, b2, b3, b4, b5, b6, b7, p0, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, sa);
+BEGIN
+DEFAULTS
+	send_data = GND;
+	rs_data_in[] = h"05"; 
+	CRC_init = GND;
+	CRC_DATA_en = GND;
+END DEFAULTS;
+
+	rs_timer. clock = CLK;
+	rs_timer. sclr = send_busy;
+	rs_timer. cnt_en = !(rs_timer.q[] == 1023);
+
+	fsm. clk = CLK;
+	CASE fsm is
+		WHEN idle => IF new_data and     (rs_data_out[]==h"7F") then fsm = b1; END IF;
+		WHEN b1   => IF new_data THEN IF (rs_data_out[]==h"03") then fsm = b2; ELSE fsm = idle; END IF; END IF;
+		WHEN b2   => IF new_data THEN IF (rs_data_out[]==h"00") then fsm = b3; ELSE fsm = idle; END IF; END IF;
+		WHEN b3   => IF new_data THEN IF (rs_data_out[]==h"00") then fsm = b4; ELSE fsm = idle; END IF; END IF;
+		WHEN b4   => IF new_data THEN IF (rs_data_out[]==h"00") then fsm = b5; ELSE fsm = idle; END IF; END IF;
+		WHEN b5   => IF new_data THEN IF (rs_data_out[]==h"03") then fsm = b6; ELSE fsm = idle; END IF; END IF;
+		WHEN b6   => IF new_data THEN IF (rs_data_out[]==h"0F") then fsm = b7; ELSE fsm = idle; END IF; END IF;
+		WHEN b7   => IF new_data THEN IF (rs_data_out[]==h"D5") then fsm = p0; ELSE fsm = idle; END IF; END IF;
+		WHEN p0   => IF rs_timer.q[]==1023 THEN fsm = s0; END IF;
+		WHEN s0   => CRC_DATA[]   = h"7F"; 
+		             rs_data_in[] = h"7F";                           IF !send_busy and (rs_timer.q[]==1023) THEN send_data=VCC; fsm=s1; CRC_init = VCC; END IF;
+		WHEN s1   => CRC_DATA[]   = h"03"; 
+		             rs_data_in[] = h"03";                           IF !send_busy and (rs_timer.q[]==1022) THEN send_data=VCC; fsm=s2; CRC_DATA_en = VCC; END IF;
+		WHEN s2   => CRC_DATA[]   = h"06"; 
+		             rs_data_in[] = h"06";                           IF !send_busy and (rs_timer.q[]==1021) THEN send_data=VCC; fsm=s3; CRC_DATA_en = VCC; END IF;
+		WHEN s3   => CRC_DATA[]   = (GND,GND,GND,GND,GND,GND,GND,detect_timer_q); 
+						 rs_data_in[] = (GND,GND,GND,GND,GND,GND,GND,detect_timer_q);
+						 IF !send_busy and (rs_timer.q[]==1020) THEN send_data=VCC; fsm=s4; CRC_DATA_en = VCC; END IF;
+		WHEN s4   => CRC_DATA[]   = (                DATA_A[ 7..0]);
+		             rs_data_in[] = (                DATA_A[ 7..0]);
+						 IF !send_busy and (rs_timer.q[]==1019) THEN send_data=VCC; fsm=s5; CRC_DATA_en = VCC; END IF;
+		WHEN s5   => CRC_DATA[]   = LEVEL_OUT[15..8];
+		             rs_data_in[] = LEVEL_OUT[15..8];
+						 IF !send_busy and (rs_timer.q[]==1018) THEN send_data=VCC; fsm=s6; CRC_DATA_en = VCC; END IF;
+		WHEN s6   => CRC_DATA[]   = (                DATA_B[ 7..0]);
+		             rs_data_in[] = (                DATA_B[ 7..0]);
+						 IF !send_busy and (rs_timer.q[]==1017) THEN send_data=VCC; fsm=s7; CRC_DATA_en = VCC; END IF;
+		WHEN s7   => CRC_DATA[]   = LEVEL_OUT[7..0];
+              		 rs_data_in[] = LEVEL_OUT[7..0];
+						 IF !send_busy and (rs_timer.q[]==1016) THEN send_data=VCC; fsm=s8; CRC_DATA_en = VCC; END IF;
+		WHEN s8   => CRC_DATA[]   = (                DATA_C[ 7..0]);
+		             rs_data_in[] = (                DATA_C[ 7..0]);
+						 IF !send_busy and (rs_timer.q[]==1015) THEN send_data=VCC; fsm=s9; CRC_DATA_en = VCC; END IF;
+		WHEN s9   => rs_data_in[] = CRC[ 7..0]; IF !send_busy and (rs_timer.q[]==1014) THEN send_data=VCC; fsm=sa; END IF;
+		WHEN sa   => rs_data_in[] = CRC[15..8]; IF !send_busy and (rs_timer.q[]==1013) THEN send_data=VCC; fsm=idle; END IF;
+		WHEN others => fsm = idle;
+	END CASE;
+
+	big_timer. clock = CLK;
+	
+	rs_clocker. clock = CLK;
+	receive_clk = TFFE(VCC, CLK, , , rs_clocker.cout);
+	
+	UART_reset = GND; -- reset active high
+	---------------------------------------
+	send_clk   = TFF(VCC, TFF(VCC, TFF(VCC, receive_clk, , ), , ), , );
+	---------------------------------------
+	
+	detect_timer. clock = CLK;
+	detect_timer. cnt_en = rs_clocker.cout;
+	detect_timer. aclr = Peleng_detect;
+	detect_timer. clk_en = !(detect_timer.q[22]);
+
+	detect_timer_q  = !(detect_timer.q[22]);
+END;

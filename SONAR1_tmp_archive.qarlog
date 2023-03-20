@@ -1,0 +1,136 @@
+Quartus Prime Archive log --	/home/nick/Quartus/SONAR1_Maxim/SONAR1_tmp_archive.qarlog
+
+Archive:	/home/nick/Quartus/SONAR1_Maxim/SONAR1_tmp_archive.qar
+Date:		Wed Nov 28 15:38:09 2018
+Quartus Prime		16.1.2 Build 203 01/18/2017 SJ Standard Edition
+
+	=========== Files Selected: ===========
+/home/nick/Quartus/SONAR1_Maxim/ADC_Arbiter.tdf
+/home/nick/Quartus/SONAR1_Maxim/ADC_core.sopcinfo
+/home/nick/Quartus/SONAR1_Maxim/CLK_DIV_2.tdf
+/home/nick/Quartus/SONAR1_Maxim/LED_BLINK.tdf
+/home/nick/Quartus/SONAR1_Maxim/ModBus_CTRL.tdf
+/home/nick/Quartus/SONAR1_Maxim/SONAR1.bdf
+/home/nick/Quartus/SONAR1_Maxim/SONAR1.qpf
+/home/nick/Quartus/SONAR1_Maxim/SONAR1.qsf
+/home/nick/Quartus/SONAR1_Maxim/SONAR1_assignment_defaults.qdf
+/home/nick/Quartus/SONAR1_Maxim/SONAR_PELENG.vhd
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys.qsys
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys.sopcinfo
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys.bsf
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys.cmp
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys.csv
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys.html
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys.spd
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys.xml
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys_bb.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys_generation.rpt
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys_generation_previous.rpt
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys_inst.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/adc_qsys_inst.vhd
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/adc_qsys.sip
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/adc_qsys.vhd
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/aldec/rivierapro_setup.tcl
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/cadence/cds.lib
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/cadence/cds_libs/ADC_0.cds.lib
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/cadence/cds_libs/PLL0.cds.lib
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/cadence/cds_libs/control_internal.cds.lib
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/cadence/cds_libs/rst_controller.cds.lib
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/cadence/hdl.var
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/cadence/ncsim_setup.sh
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/mentor/msim_setup.tcl
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/adc_qsys_ADC_0.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/adc_qsys_ADC_0.vhd
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/adc_qsys_PLL0.vho
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/altera_modular_adc_control.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/altera_modular_adc_control_avrg_fifo.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/altera_modular_adc_control_fsm.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/altera_reset_controller.sdc
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/altera_reset_controller.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/altera_reset_synchronizer.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/chsel_code_converter_sw_to_hw.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/fiftyfivenm_adcblock_primitive_wrapper.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/submodules/fiftyfivenm_adcblock_top_wrapper.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/synopsys/vcsmx/synopsys_sim.setup
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/simulation/synopsys/vcsmx/vcsmx_setup.sh
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/adc_qsys.debuginfo
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/adc_qsys.qip
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/adc_qsys.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/adc_qsys.vhd
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/adc_qsys_ADC_0.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/adc_qsys_PLL0.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/adc_qsys_PLL_0.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/adc_qsys_altpll_0.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/altera_modular_adc_control.sdc
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/altera_modular_adc_control.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/altera_modular_adc_control_avrg_fifo.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/altera_modular_adc_control_fsm.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/altera_reset_controller.sdc
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/altera_reset_controller.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/altera_reset_synchronizer.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/chsel_code_converter_sw_to_hw.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/fiftyfivenm_adcblock_primitive_wrapper.v
+/home/nick/Quartus/SONAR1_Maxim/adc_qsys/synthesis/submodules/fiftyfivenm_adcblock_top_wrapper.v
+/home/nick/Quartus/SONAR1_Maxim/add_pll.bsf
+/home/nick/Quartus/SONAR1_Maxim/add_pll.cmp
+/home/nick/Quartus/SONAR1_Maxim/add_pll.inc
+/home/nick/Quartus/SONAR1_Maxim/add_pll.ppf
+/home/nick/Quartus/SONAR1_Maxim/add_pll.qip
+/home/nick/Quartus/SONAR1_Maxim/add_pll.vhd
+/home/nick/Quartus/SONAR1_Maxim/add_pll_inst.vhd
+/home/nick/Quartus/SONAR1_Maxim/crc16_mb.vhd
+/home/nick/Quartus/SONAR1_Maxim/ctr_bcd.vhd
+/home/nick/Quartus/SONAR1_Maxim/ctr_receiver_clock.vhd
+/home/nick/Quartus/SONAR1_Maxim/hdlsrc/filter.vhd
+/home/nick/Quartus/SONAR1_Maxim/kFilter.vhd
+/home/nick/Quartus/SONAR1_Maxim/main_clock.qsys
+/home/nick/Quartus/SONAR1_Maxim/main_clock.sopcinfo
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock.bsf
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock.cmp
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock.csv
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock.html
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock.ppf
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock.spd
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock.xml
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock_bb.v
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock_generation.rpt
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock_generation_previous.rpt
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock_inst.v
+/home/nick/Quartus/SONAR1_Maxim/main_clock/main_clock_inst.vhd
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/aldec/rivierapro_setup.tcl
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/cadence/cds.lib
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/cadence/cds_libs/int_osc_0.cds.lib
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/cadence/hdl.var
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/cadence/ncsim_setup.sh
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/main_clock.sip
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/main_clock.vhd
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/mentor/msim_setup.tcl
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/submodules/altera_int_osc.sdc
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/submodules/altera_int_osc.v
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/synopsys/vcsmx/synopsys_sim.setup
+/home/nick/Quartus/SONAR1_Maxim/main_clock/simulation/synopsys/vcsmx/vcsmx_setup.sh
+/home/nick/Quartus/SONAR1_Maxim/main_clock/synthesis/main_clock.debuginfo
+/home/nick/Quartus/SONAR1_Maxim/main_clock/synthesis/main_clock.qip
+/home/nick/Quartus/SONAR1_Maxim/main_clock/synthesis/main_clock.vhd
+/home/nick/Quartus/SONAR1_Maxim/main_clock/synthesis/submodules/altera_int_osc.sdc
+/home/nick/Quartus/SONAR1_Maxim/main_clock/synthesis/submodules/altera_int_osc.v
+/home/nick/Quartus/SONAR1_Maxim/rs232_receiver.vhd
+/home/nick/Quartus/SONAR1_Maxim/rs232_transmitter.vhd
+/home/nick/Quartus/SONAR1_Maxim/rx_ctrl.vhd
+/home/nick/Quartus/SONAR1_Maxim/shift9_lr.vhd
+/home/nick/Quartus/SONAR1_Maxim/shift9_r.vhd
+/home/nick/Quartus/SONAR1_Maxim/signals1.stp
+/home/nick/Quartus/SONAR1_Maxim/sonar_pwr.tdf
+/home/nick/Quartus/SONAR1_Maxim/tx_ctrl.vhd
+/home/nick/Quartus/SONAR1_Maxim/uart_test.stp
+/home/nick/Quartus/SONAR1_Maxim/voting_circuit_2_of_3.vhd
+	======= Total: 119 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Wed Nov 28 15:38:11 2018
+Source archive file:	/home/nick/Quartus/SONAR1_Maxim/SONAR1_tmp_archive.qar
+Archive was extracted into	/home/nick/Quartus/SONAR1_Maxim_10M04/
+		 - successfully.

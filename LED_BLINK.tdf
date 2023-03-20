@@ -1,0 +1,15 @@
+INCLUDE "lpm_counter";
+
+SUBDESIGN LED_BLINK(CLK : INPUT; RX : INPUT; LED : OUTPUT)
+VARIABLE
+	cntr : lpm_counter WITH (LPM_WIDTH = 25, LPM_MODULUS = 25000000);
+	rx_cnt : lpm_counter WITH (LPM_WIDTH = 20);
+BEGIN
+	cntr. clock = CLK;
+	
+	rx_cnt. clock = CLK;
+	rx_cnt. cnt_en = !rx_cnt. cout;
+	rx_cnt. aclr = RX;
+	
+	LED = !(SRFF( cntr. q[24..10]==0, cntr. q[24..10]==1500, CLK, , ) or !rx_cnt. cout);
+END;
